@@ -54,7 +54,11 @@ global.Page = (opts: any) => {
   })
 }
 
-export type ComponentId = jComponent.ComponentId<{}, {}, {}>
+export type ComponentId = jComponent.ComponentId<
+  Record<string, any>,
+  Record<string, null>,
+  Record<string, (...args: any[]) => any>
+>
 
 export type RegisterOptions = {
   id?: string
