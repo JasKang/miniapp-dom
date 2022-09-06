@@ -1,5 +1,12 @@
 
 
+## [0.0.5](https://github.com/JasKang/miniprogram-test-util/compare/0.0.4...0.0.5) (2022-09-06)
+
+
+### Bug Fixes
+
+* template ([c800991](https://github.com/JasKang/miniprogram-test-util/commit/c8009913642f59833cc7c0ddc0051ad9a15189ae))
+
 ## [0.0.4](https://github.com/JasKang/miniprogram-test-util/compare/0.0.3...0.0.4) (2022-09-06)
 
 
