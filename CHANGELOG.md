@@ -1,5 +1,12 @@
 
 
+## [0.0.4](https://github.com/JasKang/miniprogram-test-util/compare/0.0.3...0.0.4) (2022-09-06)
+
+
+### Bug Fixes
+
+* route ([17518da](https://github.com/JasKang/miniprogram-test-util/commit/17518dae035d9c1ce672b45e67499589cfdceb08))
+
 ## [0.0.3](https://github.com/JasKang/miniprogram-test-util/compare/0.0.2...0.0.3) (2022-09-06)
 
 
