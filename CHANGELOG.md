@@ -1,5 +1,12 @@
 
 
+## [0.0.3](https://github.com/JasKang/miniprogram-test-util/compare/0.0.2...0.0.3) (2022-09-06)
+
+
+### Bug Fixes
+
+* ComponentId type ([819bf2c](https://github.com/JasKang/miniprogram-test-util/commit/819bf2c2e90e27b02a88f03c8e4ada90679a90b8))
+
 ## 0.0.2 (2022-09-06)
 
 
