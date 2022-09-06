@@ -2,11 +2,27 @@
   "name": "miniprogram-test-util",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "jaskang",
+  "license": "ISC",
+  "scripts": {
+    "build": "tsup",
+    "release": "release-it patch"
+  },
+  "dependencies": {
+    "j-component": "^1.4.6"
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.3",
+    "@types/node": "^18.7.15",
+    "eslint": "^8.23.0",
+    "eslint-config-jaskang": "^0.1.3",
+    "miniprogram-api-typings": "^3.5.0",
+    "prettier": "^2.7.1",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.2"
+  }
 }

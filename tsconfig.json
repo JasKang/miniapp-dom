@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/node14/tsconfig.json",
+  "compilerOptions": {
+    "lib": ["es2020", "DOM", "ESNext"],
+    "types": ["node", "miniprogram-api-typings"],
+    "baseUrl": "."
+  },
+  "include": ["env.d.ts", "src"]
+}
