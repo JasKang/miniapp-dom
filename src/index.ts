@@ -1,6 +1,20 @@
 import jComponent from 'j-component'
 import { getId } from './utils'
 
+export type ComponentId = jComponent.ComponentId<
+  Record<string, any>,
+  Record<string, null>,
+  Record<string, (...args: any[]) => any>
+>
+
+export type RootComponent = jComponent.RootComponent<
+  Record<string, any>,
+  Record<string, null>,
+  Record<string, (...args: any[]) => any>
+> & {
+  triggerPageLifeTime(lifetime: 'show' | 'hide' | 'resize'): void
+}
+
 const componentOptionsMap = new Map<string, any>()
 let lastOptionsId = ''
 const currentPages: any[] = []
@@ -54,12 +68,6 @@ global.Page = (opts: any) => {
   })
 }
 
-export type ComponentId = jComponent.ComponentId<
-  Record<string, any>,
-  Record<string, null>,
-  Record<string, (...args: any[]) => any>
->
-
 export type RegisterOptions = {
   id?: string
   path?: string
@@ -73,10 +81,10 @@ export function register(optionsId: string, { id, path, tagName, template, using
 
   const definition = {
     ...sourceOptions,
-    id,
+    id: id || getId(),
     path,
     tagName,
-    template,
+    template: template || '<slot/>',
     usingComponents,
   }
   const componentId = jComponent.register(definition) as ComponentId
@@ -101,7 +109,7 @@ export function render(optionsId: string, options: RenderOptions = {}) {
   if (root.instance.route) {
     root.instance.onLoad(options.props)
   }
-  return root
+  return root as RootComponent
 }
 
 /**
