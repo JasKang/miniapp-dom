@@ -36,7 +36,7 @@ global.Page = (opts: any) => {
     },
     lifetimes: {
       created(this: any) {
-        this.route = this.data.__url__
+        this.route = this.data.__url__ || '/pages/index'
       },
       attached() {
         currentPages.push(this)
@@ -83,16 +83,24 @@ export function register(optionsId: string, { id, path, tagName, template, using
   return componentId
 }
 
-export type RenderOptions = {
+export type RenderOptions = RegisterOptions & {
   props?: Record<string, any>
   url?: string
+  parent?: Node
 }
 
-export function render(componentId: ComponentId, { props, url }: RenderOptions = {}) {
+export function render(optionsId: string, options: RenderOptions = {}) {
+  const { props, url, parent, ...others } = options
+  const el = parent || document.createElement('div')
+  const componentId = register(optionsId, others)
   const root = jComponent.create(componentId, {
     __url__: url,
     ...props,
   })
+  root.attach(el)
+  if (root.instance.route) {
+    root.instance.onLoad(options.props)
+  }
   return root
 }
 
