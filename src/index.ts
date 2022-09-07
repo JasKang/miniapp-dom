@@ -7,8 +7,6 @@ export type ComponentId = jComponent.ComponentId<
   Record<string, (...args: any[]) => any>
 >
 
-export interface InstanceCustom {}
-
 export type RootComponent = jComponent.RootComponent<
   Record<string, any>,
   Record<string, null>,
@@ -19,7 +17,7 @@ export type RootComponent = jComponent.RootComponent<
     Record<string, any>,
     Record<string, null>,
     Record<string, (...args: any[]) => any>,
-    InstanceCustom
+    Record<string, any>
   >
 }
 
