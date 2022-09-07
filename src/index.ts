@@ -118,6 +118,12 @@ export function render(optionsId: string, options: RenderOptions = {}) {
   return root
 }
 
+export function launchApp(fn: (...args: any[]) => any, options: WechatMiniprogram.App.LaunchShowOption) {
+  const app = fn() as WechatMiniprogram.App.Instance<Record<string, any>>
+  app.onLaunch(options)
+  return app
+}
+
 /**
  * 让线程等待一段时间再执行
  */
