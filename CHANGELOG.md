@@ -1,5 +1,12 @@
 
 
+## [0.0.8](https://github.com/JasKang/miniprogram-test-util/compare/0.0.7...0.0.8) (2022-09-07)
+
+
+### Features
+
+* launchApp ([23394d6](https://github.com/JasKang/miniprogram-test-util/commit/23394d6bc79d1750c0596ca0b57143b26c6dad4f))
+
 ## [0.0.7](https://github.com/JasKang/miniprogram-test-util/compare/0.0.6...0.0.7) (2022-09-07)
 
 ## [0.0.6](https://github.com/JasKang/miniprogram-test-util/compare/0.0.5...0.0.6) (2022-09-07)

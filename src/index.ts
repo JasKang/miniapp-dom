@@ -22,13 +22,11 @@ export type RootComponent = jComponent.RootComponent<
 }
 
 const componentOptionsMap = new Map<string, any>()
-let lastOptionsId = ''
 const currentPages: any[] = []
-
-const MockBehavior: WechatMiniprogram.Behavior.Constructor = definition => jComponent.behavior(definition)
+let lastOptionsId = null
 
 // @ts-ignore
-global.Behavior = MockBehavior
+global.Behavior = definition => jComponent.behavior(definition)
 
 // @ts-ignore
 global.getCurrentPages = () => currentPages
@@ -50,7 +48,8 @@ global.Component = (options: any) => {
 global.Page = (opts: any) => {
   const { behaviors, options, ...others } = opts
 
-  const routeBehavior = MockBehavior({
+  // @ts-ignore
+  const routeBehavior = global.Behavior({
     properties: {
       __url__: String,
     },
