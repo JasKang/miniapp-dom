@@ -117,6 +117,12 @@ export function render(optionsId: string, options: RenderOptions = {}) {
   return root
 }
 
+/**
+ * launchApp
+ * @param fn createApp
+ * @param options
+ * @returns
+ */
 export function launchApp(fn: (...args: any[]) => any, options: WechatMiniprogram.App.LaunchShowOption) {
   const app = fn() as WechatMiniprogram.App.Instance<Record<string, any>>
   app.onLaunch(options)
