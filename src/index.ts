@@ -123,9 +123,10 @@ export function render(optionsId: string, options: RenderOptions = {}) {
  * @param options
  * @returns
  */
-export function launchApp(fn: (...args: any[]) => any, options: WechatMiniprogram.App.LaunchShowOption) {
+export function launchApp(fn: (...args: any[]) => any, options: Partial<WechatMiniprogram.App.LaunchShowOption> = {}) {
   const app = fn() as WechatMiniprogram.App.Instance<Record<string, any>>
-  app.onLaunch(options)
+  const { path = '/pages/index', query = {}, scene = 1001, shareTicket = '', referrerInfo } = options
+  app.onLaunch({ path, query, scene, shareTicket, referrerInfo })
   return app
 }
 
