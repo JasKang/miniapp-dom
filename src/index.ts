@@ -7,12 +7,20 @@ export type ComponentId = jComponent.ComponentId<
   Record<string, (...args: any[]) => any>
 >
 
+export interface InstanceCustom {}
+
 export type RootComponent = jComponent.RootComponent<
   Record<string, any>,
   Record<string, null>,
   Record<string, (...args: any[]) => any>
 > & {
   triggerPageLifeTime(lifetime: 'show' | 'hide' | 'resize'): void
+  readonly instance: WechatMiniprogram.Component.Instance<
+    Record<string, any>,
+    Record<string, null>,
+    Record<string, (...args: any[]) => any>,
+    InstanceCustom
+  >
 }
 
 const componentOptionsMap = new Map<string, any>()
@@ -104,12 +112,12 @@ export function render(optionsId: string, options: RenderOptions = {}) {
   const root = jComponent.create(componentId, {
     __url__: url,
     ...props,
-  })
+  }) as RootComponent
   root.attach(el)
   if (root.instance.route) {
     root.instance.onLoad(options.props)
   }
-  return root as RootComponent
+  return root
 }
 
 /**
